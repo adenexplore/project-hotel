@@ -44,6 +44,7 @@
                                 <td>{{ $booking->tgl_booking }}</td>
                                 <td>
                                     <form action="{{ route('booking.destroy',$booking->id) }}" method="POST">
+                                        @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">
                                             <i class="fa-solid fa-trash-can"></i>

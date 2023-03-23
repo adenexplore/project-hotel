@@ -43,7 +43,7 @@ class BerandaController extends Controller
         Booking::create($request->all());
 
         return redirect()->route('beranda.index')
-            ->with('success', 'Berhasil Menyimpan !');
+            ->with('success', 'Berhasil Booking!');
     }
 
     /**
@@ -86,8 +86,12 @@ class BerandaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($booking)
     {
-        //
+        $bookingid = Booking::find($booking);
+        $bookingid->delete();
+
+        return redirect()->route('booking.index')
+            ->with('success', 'Data Berhasil Hapus !');
     }
 }

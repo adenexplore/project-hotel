@@ -47,18 +47,20 @@
                                 <td>{{ $checkout->tgl_cekout }}</td>
                                 <td>{{ $checkout->payment }}</td>
                                 <td>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="fa-solid fa-right-from-bracket"></i>
-                                    </a>
-                                    {{-- <form action="{{ route('check_out.destroy',$checkout->id) }}" method="POST">
+                                    <form action="{{ route('check_out.destroy',$checkout->id) }}" method="POST">
+                                        {{-- <a class="btn btn-primary" href="{{ route('kelas.edit',$kelas->id) }}">
+                                            <i class="fa-solid fa-pen"> </i>
+                                        </a> --}}
+                                        <a class="btn btn-danger" href="{{ route('check_out.create') }}">
+                                            <i class="fa-solid fa-right-from-bracket"></i>
+                                        </a>
                                         @csrf
-                                        @if(Auth::user()->role !='user')
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">
-                                                <i class="fa-solid fa-right-from-bracket"></i>
+                                            <i class="fa-solid fa-trash-can"></i>
                                         </button>
-                                        @endif
-                                    </form> --}}
+                                    </form>
+                                    
                                 </td>
                             </tr>
                         @endforeach

@@ -81,3 +81,7 @@
 
 </form>
 @endsection
+
+@section('title')
+Edit Check In
+@stop

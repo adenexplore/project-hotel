@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Checkin;
+use App\Models\Checkout;
 use Illuminate\Http\Request;
 class CheckoutController extends Controller
 {
@@ -26,9 +27,9 @@ class CheckoutController extends Controller
      */
     public function create()
     {
-        //
+        $checkin = Checkin::all();
+        return view('check_out.hitung', compact('checkin'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -37,7 +38,20 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'type_kamar' => 'required',
+            'nama_tamu' => 'required',
+            'jumlah_tamu' => 'required',
+            'tgl_cekin' => 'required',
+            'tgl_cekout' => 'required',
+            'makanan' => '',
+            'minuman' => '',
+            'seafood' => '',
+            'laundry' => '',
+        ]);
+        Checkout::create($request->all());
+        return redirect()->route('check_out.index')
+            ->with('success', 'Berhasil hitung !');
     }
 
     /**
@@ -59,7 +73,8 @@ class CheckoutController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $checkout = Checkin::find($id);
+        // return view('check_out.hitung',compact('checkout'));
     }
 
     /**
@@ -73,26 +88,24 @@ class CheckoutController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Checkin $checkouts)
+    public function destroy($checkout)
     {
-        $checkouts->delete();
+        $checkoutid = Checkin::find($checkout);
+        $checkoutid->delete();
 
         return redirect()->route('check_out.index')
-            ->with('success', 'Berhasil Hapus !');
+            ->with('success', 'Data Berhasil Hapus !');
     }
 
-    public function checkout($checkouts)
+    public function payment($id)
     {
-        $checkouts->delete();
-
-        return redirect()->route('check_out.index')
-            ->with('success', 'Berhasil Hapus !');
+        $checkout = Checkin::find($id);
+        return view('check_out.hitung',compact('checkout'));
     }
 }

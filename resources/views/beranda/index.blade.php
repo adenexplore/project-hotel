@@ -33,6 +33,7 @@
 </head>
 
 <body>
+   
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         {{-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -94,7 +95,7 @@
             </div>
         </div>
         <!-- Header End -->
-
+       
 
         <!-- Carousel Start -->
         <div class="container-fluid p-0 mb-5">
@@ -141,7 +142,22 @@
         <!-- Booking Start -->
        
         <!-- Booking End -->
-
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 border rounded p-1">
+                        <div class="border rounded text-center p-1">
+                            <div class="bg-white rounded text-center p-5">
+                                <h4 class="mb-4">{{ $message }}</span></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p></p>
+        </div>
+        @endif
 
         <!-- About Start -->
         <div class="container-xxl py-5">

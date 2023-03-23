@@ -68,9 +68,10 @@ class CheckinController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Checkin $checkin)
+    public function edit($id)
     {
-        return view('check_in.edit', compact('checkin'));
+        $checkin = Checkin::find($id);
+        return view('check_in.edit',compact('checkin'));
     }
 
     /**
@@ -91,20 +92,10 @@ class CheckinController extends Controller
             'payment' => 'required',
         ]);
 
-        $checkin = Checkin::find($id);
-
-        //   dd($request->all());
-        // die; 
-        $checkin->type_kamar = $request->type_kamar;
-        $checkin->nama_tamu = $request->nama_tamu;
-        $checkin->jumlah_tamu = $request->jumlah_tamu;
-        $checkin->tgl_cekin = $request->tgl_cekin;
-        $checkin->tgl_cekout = $request->tgl_cekout;
-        $checkin->payment = $request->payment;
-        $checkin->save();
-
+        
+        Checkin::find($id)->update($request->all());
         return redirect()->route('check_in.index')
-        ->with('success', 'Berhasil Di Edit !');
+            ->with('success', 'Berhasil Di Edit !');
     }
 
     /**
