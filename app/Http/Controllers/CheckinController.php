@@ -46,15 +46,6 @@ class CheckinController extends Controller
             'tgl_cekout' => 'required',
             'payment' => 'required',
         ]);
-        // $element = new Checkin();
-        // $checkin->nomor_kamar = $request->nomor_kamar;
-        // $checkin->nama_tamu = $request->nama_tamu;
-        // $checkin->jumlah_tamu = $request->jumlah_tamu;
-        // $checkin->tgl_cekin = $request->tgl_cekin;
-        // $checkin->tgl_cekout = $request->tgl_cekout;
-        // $checkin->jumlah_deposit = $request->jumlah_deposit;
-        // $checkin->save();
-
         Checkin::create($request->all());
 
         return redirect()->route('check_in.index')

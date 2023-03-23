@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CheckinController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\CleanroomController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,18 +22,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('beranda.index');
 });
 
+Route::get('/login');
 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-
+    
+Route::resource('/home', HomeController::class);
+Route::resource('/beranda', BerandaController::class);
 Route::resource('/check_in', CheckinController::class);
 Route::resource('/check_out', CheckoutController::class);
+Route::resource('/booking', BookingController::class);
 Route::resource('/layanan', LayananController::class);
 Route::resource('/cleanroom', CleanroomController::class);
 

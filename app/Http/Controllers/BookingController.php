@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Booking;
 class BookingController extends Controller
 {
     /**
@@ -13,9 +13,11 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $bookings = Booking::orderBy('created_at','desc')->get();
 
+        return view('booking.index', compact('bookings'))
+        ->with('i', (request()->input('booking', 1) - 1) * 5);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -34,7 +36,16 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'type_kamar' => 'required',
+            'nama_tamu' => 'required',
+            'jumlah_tamu' => 'required',
+            'tgl_booking' => 'required',
+        ]);
+        Booking::create($request->all());
+
+        return redirect()->route('beranda.index')
+            ->with('success', 'Berhasil Menyimpan !');
     }
 
     /**
@@ -77,8 +88,12 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($booking)
+    {   
+        $bookingid = Booking::find($booking);
+        $bookingid->delete();
+
+        return redirect()->route('booking.index')
+            ->with('success', 'Data Berhasil Hapus !');
     }
 }

@@ -81,4 +81,9 @@ class LayananController extends Controller
     {
         //
     }
+
+    public function layanan()
+    {
+        return view('layanan.food');
+    }
 }

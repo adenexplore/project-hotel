@@ -220,17 +220,14 @@
                     <form action="#" POST>
                         <div class="col mr-2">
                             <div class="text-xxl font-weight-bold text-primary text-uppercase mb-1" class="kamar" style="text-align:center;">
-                                5</div>
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" class="kamar">
+                                345 dari 360</div>
+                            <div class="text font-weight-bold text-primary text-uppercase mb-1" class="kamar">
                             kamar tersedia</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <div class="h5 mb-10 font-weight-bold text-gray-800">
                             </div>
                         </div>
                     </form> 
-                    <div class="col-auto">
-                        <a href="#"><i class="fas fa-bed fa-2x text-gray-300"></i></a>
-                    </div>
-                    <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm center">Lihat Selengkapnya</button>
+                    <a  href="#" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm center" style="margin-left:40px;">View More</a>
                 </div>
             </div>
         </div>
@@ -243,46 +240,40 @@
                 <div class="row no-gutters align-items-center">
                     <form action="#" POST>
                         <div class="col mr-2">
-                            <div class="text-xxl font-weight-bold text-danger text-uppercase mb-1" class="kamar" style="text-align:center;">
-                                10</div>
-                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1" class="kamar">
+                            <div class="text font-weight-bold text-danger text-uppercase mb-1" class="kamar" style="text-align:center;">
+                            15 Dari 360</div>
+                            <div class="text font-weight-bold text-danger text-uppercase mb-2" class="kamar">
                             kamar terpakai</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                             </div>
                         </div>
                     </form> 
-                    <div class="col-auto">
-                        <a href="#"><i class="fas fa-bed fa-2x text-gray-300"></i></a>
-                    </div>
-                    <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm center">Lihat Selengkapnya</button>
+                    <a href="#" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm center" style="margin-left:40px;">View More</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    {{-- <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <form action="#" POST>
                         <div class="col mr-2">
                             <div class="text-xxl font-weight-bold text-warning text-uppercase mb-1" class="kamar" style="text-align:center;">
-                                5</div>
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1" class="kamar">
+                                 15 Dari 360</div>
+                                <div class="text font-weight-bold text-warning text-uppercase mb-1" class="kamar">
                            kamar kotor</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                             </div>
                         </div>
                     </form> 
-                    <div class="col-auto">
-                        <a href="#"><i class="fas fa-bed fa-2x text-gray-300"></i></a>
-                    </div>
-                    <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm center">Lihat Selengkapnya</button>
+                    <a href="#" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm center" style="margin-left:40px;">view more</a>
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
      <!-- Earnings (Monthly) Card Example -->
      <div class="col-xl-3 col-md-6 mb-4">
@@ -293,16 +284,13 @@
                         <div class="col mr-2">
                             <div class="text-xxl font-weight-bold text-success text-uppercase mb-1" class="kamar" style="text-align:center;">
                                 10</div>
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1" class="kamar">
+                                <div class="text font-weight-bold text-success text-uppercase mb-1" class="kamar">
                            Booking Kamar</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                             </div>
                         </div>
                     </form> 
-                    <div class="col-auto">
-                        <a href="#"><i class="fas fa-bed fa-2x text-gray-300"></i></a>
-                    </div>
-                    <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm center">Lihat Selengkapnya</button>
+                    <a href="#" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm " style="margin-left:40px;">View More</a>
                 </div>
             </div>
         </div>
@@ -310,6 +298,264 @@
 </div>
 
 <!-- Content Row -->
+
+    {{-- card check in --}}
+    <div>
+        
+        <h3>Room Superrior</h3>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="{{ route('check_in.create') }}"><span class="badge badge-light">100</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">102</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">103</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">104</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">105</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">106</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">107</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">108</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">109</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">110</span></a>
+        </button>
+        <br><br>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">111</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">112</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">113</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">114</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">115</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">116</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">117</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">118</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">119</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">120</span></a>
+        </button>
+    </div><b><br>
+    {{-- room Delux --}}
+    <div>
+        <h3>Room Delux</h3>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">100</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">102</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">103</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">104</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">105</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">106</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">107</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">108</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">109</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">110</span></a>
+        </button>
+        <br><br>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">111</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">112</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">113</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">114</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">115</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">116</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">117</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">118</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">119</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">120</span></a>
+        </button>
+    </div><br><br>
+    {{-- room standard --}}
+    <div>
+        <h3>Room standard</h3>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">100</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">102</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">103</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">104</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">105</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">106</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">107</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">108</span></a>
+        </button>
+        <button type="button" class="btn btn-danger" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">109</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">110</span></a>
+        </button>
+        <br><br>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">111</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">112</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">113</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">114</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">115</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">116</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">117</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">118</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">119</span></a>
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            <i class="fas fa-bed"></i><br>
+            <a href="#"><span class="badge badge-light">120</span></a>
+        </button>
+    </div>
+        
 
 
 

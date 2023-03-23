@@ -28,7 +28,9 @@
                         </div>
                     </form> 
                     <div class="col-auto">
-                        <a href="#"><i class="fas fa-utensils fa-2x text-gray-300"></i></a>
+                        <a href=
+                        {{-- "{{ route('layanan.food') }}" --}}
+                        ><i class="fas fa-utensils fa-2x text-gray-300"></i></a>
                     </div>
                 </div>
             </div>

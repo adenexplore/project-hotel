@@ -26,6 +26,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets2/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ asset('assets2/img/b.png')}}">
     <style>
         body {
             background-color: dimgray;
