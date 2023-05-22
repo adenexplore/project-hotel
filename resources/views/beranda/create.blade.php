@@ -75,7 +75,9 @@
                         <br>
                         <input type="date" name="tgl_booking" class="form-control datetimepicker-input" >
                     </div>
+                    <br>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <button  class="btn btn-success"><a href="{{ route('beranda.index') }}" style="color:white;"> Cancel</a> </button>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>

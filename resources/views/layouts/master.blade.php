@@ -70,7 +70,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Check</h6>
                         <a class="collapse-item" href="/check_in">Check In</a>
-                        <a class="collapse-item" href="/check_out">Check Out</a>
+                        {{-- <a class="collapse-item" href="/check_out">Check Out</a> --}}
                         <a class="collapse-item" href="/booking">Rencana/Booking</a>
                         {{-- <a class="collapse-item" href="/tamu">Tamu In-House</a> --}}
                     </div>
@@ -83,14 +83,15 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Room</h6>
-                        <a class="collapse-item" href="/layanan">Pesan Layanan / Product</a>
-                        {{-- <a class="collapse-item" href="/cleanroom">Pembersihan Kamar</a> --}}
+                        <h6 class="collapse-header">Custom Service</h6>
+                        <a class="collapse-item" href="/service/service_food">Service Food</a>
+                        <a class="collapse-item" href="/service/service_drinks">Service Drink</a>
+                        <a class="collapse-item" href="/service/service_seafood">Service Seafood</a>
                     </div>
                 </div>
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
-            @if(Auth::user()->role !='Operator')
+            {{-- @if(Auth::user()->role !='Operator') --}}
              <!-- Heading -->
              <div class="sidebar-heading">
                 Administrasi Hotel
@@ -98,54 +99,16 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThere" aria-expanded="true" aria-controls="collapseThere">
                     <i class="fas fa-fw fa-person-booth"></i>
-                    <span>Kamar</span>
+                    <span> Type Kamar</span>
                 </a>
                 <div id="collapseThere" class="collapse" aria-labelledby="headingThere" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Kamar</h6>
-                        <a class="collapse-item" href="/lihat_kamar">Lihat Kamar</a>
-                        <a class="collapse-item" href="/type_kamar">Tipe Kamar</a>
+                        <a class="collapse-item" href="/type_kamar">Type Kamar</a>
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                    <i class="fas fa-fw fa-sliders"></i>
-                    <span>Layanan</span>
-                </a>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Layanan</h6>
-                        <a class="collapse-item" href="/layanan">Lihat Layanan</a>
-                        <a class="collapse-item" href="/kategori_layanan">Kategori Layanan</a>
-                        <a class="collapse-item" href="/kategori_layanan">Laundry</a>
-                    </div>
-                </div>
-            </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                    <i class="fas fa-fw fa-book"></i>
-                    <span>Buku Tamu</span>
-                </a>
-                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Buku Tamu</h6>
-                        <a class="collapse-item" href="/tamu">Lihat Tamu</a>
-                    </div>
-                </div>
-            </li> --}}
-            {{-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>User Manager</span>
-                </a>
-                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom User</h6>
-                        <a class="collapse-item" href="/add_user">Lihat User</a>
-                    </div>
-                </div>
-            </li> --}}
+            @if(Auth::user()->role !='Operator')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
                     <i class="fas fa-fw fa-list-check"></i>
@@ -158,7 +121,7 @@
                     </div>
                 </div>
             </li>
-        @endif
+            @endif
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">

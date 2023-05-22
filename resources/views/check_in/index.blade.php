@@ -7,11 +7,9 @@
                 <h3>Data Check In </h3>
             </div>
             <hr>
-            @if(Auth::user()->role !='Admin')
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('check_in.create') }}" style="float:right;">Tambah Check In <i class="fa-sharp fa-solid fa-add"></i></a>
             </div>
-            @endif
         </div>
     </div>
 
@@ -30,7 +28,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr  style="text-align:center;">
                             <th>No.</th>
                             <th>Type Kamar</th>
                             <th>Nama Tamu</th>
@@ -49,14 +47,16 @@
                                 <td>{{ $checkin->nama_tamu }}</td>
                                 <td>{{ $checkin->jumlah_tamu }}</td>
                                 <td>{{ $checkin->tgl_cekin }}</td>
-                                {{-- <td>{{ $checkin->tgl_cekout }}</td> --}}
                                 <td>{{ $checkin->payment }}</td>
                                 <td>
                                     <form action="{{ route('check_in.destroy',$checkin->id) }}" method="POST">
                                         @csrf
                                         @if(Auth::user()->role !='user')
-                                        <a class="btn btn-primary" href="{{ route('check_in.edit',$checkin->id) }}">
+                                        {{-- <a class="btn btn-primary" href="{{ route('check_in.edit',$checkin->id) }}">
                                             <i class="fa-solid fa-pen"></i>
+                                        </a> --}}
+                                        <a class="btn btn-success" href="{{ route('check_in.edit',$checkin->id) }}">
+                                            <i class="fa-solid fa-right-from-bracket"></i>
                                         </a>
                                         @endif
                                         @csrf

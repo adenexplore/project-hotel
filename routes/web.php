@@ -5,9 +5,12 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CheckinController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\LayananController;
 use App\Http\Controllers\CleanroomController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServiceDrinksController;
+use App\Http\Controllers\ServicefoodController;
+use App\Http\Controllers\ServiceSeafoodController;
+use App\Http\Controllers\TypekamarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,7 +41,10 @@ Route::resource('/beranda', BerandaController::class);
 Route::resource('/check_in', CheckinController::class);
 Route::resource('/check_out', CheckoutController::class);
 Route::resource('/booking', BookingController::class);
-Route::resource('/layanan', LayananController::class);
+Route::resource('/type_kamar', TypekamarController::class);
+Route::resource('/service/service_food', ServicefoodController::class);
+Route::resource('/service/service_drinks', ServiceDrinksController::class);
+Route::resource('/service/service_seafood', ServiceSeafoodController::class);
 Route::resource('/cleanroom', CleanroomController::class);
 
 // Auth::routes();

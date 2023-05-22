@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Food;
 
-class LayananController extends Controller
+class ServicefoodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,14 @@ class LayananController extends Controller
      */
     public function index()
     {
-        return view('layanan.index');
+        $services = Food::orderBy('created_at','desc')->get();
+
+        return view('service/service_food.index', compact('services'))
+        ->with('i', (request()->input('services', 1) - 1) * 5);
     }
+    // {
+    //     return view('service/service_food.index');
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -23,7 +30,7 @@ class LayananController extends Controller
      */
     public function create()
     {
-        //
+        return view('service/service_food.create');
     }
 
     /**
@@ -34,7 +41,15 @@ class LayananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'food_name' => 'required',
+            'quantity' => 'required',
+            'price' => 'required',
+        ]);
+        Food::create($request->all());
+
+        return redirect()->route('service_food.index')
+            ->with('success', 'Berhasil Menyimpan !');
     }
 
     /**
@@ -56,9 +71,9 @@ class LayananController extends Controller
      */
     public function edit($id)
     {
-        //
+        $service = Food::find($id);
+        return view('service/service_food.edit',compact('service'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -68,7 +83,16 @@ class LayananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'food_name' => 'required',
+            'quantity' => 'required',
+            'price' => 'required',
+        ]);
+
+        
+        Food::find($id)->update($request->all());
+        return redirect()->route('service_food.index')
+            ->with('success', 'Berhasil Di Edit !');
     }
 
     /**
@@ -77,13 +101,12 @@ class LayananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    public function destroy($service)
+    {   
+        $serviceid = Food::find($service);
+        $serviceid->delete();
 
-    public function layanan()
-    {
-        return view('layanan.food');
+        return redirect()->route('service_food.index')
+            ->with('success', 'Data Berhasil Hapus !');
     }
 }

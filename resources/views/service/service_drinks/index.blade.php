@@ -3,10 +3,19 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h3>Data Check Out</h3>
+            <div class="center">
+                <center><h2> Drinks Service</h2></center>
             </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
             <hr>
+            <div class="pull-right">
+                <a class="btn btn-success" href="{{ route('service_drinks.create') }}" style="float:right;">Add Seafood <i class="fa-sharp fa-solid fa-add"></i></a>
+            </div>
         </div>
     </div>
 
@@ -19,45 +28,39 @@
     @endif
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Check Out</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Drinks Data</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr  style="text-align:center;">
                             <th>No.</th>
-                            <th>Type kamar</th>
-                            <th>Nama Tamu</th>
-                            <th>Jumblah Tamu</th>
-                            <th>Tanggal Check In</th>
-                            <th>Tanggal Check Out</th>
-                            <th>Payment</th>
+                            <th>Drinks Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
                             <th width="112px">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($checkouts as $checkout)
+                        @foreach ($services_drinks as $service)
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>{{ $checkout->type_kamar }}</td>
-                                <td>{{ $checkout->nama_tamu }}</td>
-                                <td>{{ $checkout->jumlah_tamu }}</td>
-                                <td>{{ $checkout->tgl_cekin }}</td>
-                                <td>{{ $checkout->tgl_cekout }}</td>
-                                <td>{{ $checkout->payment }}</td>
+                                <td>{{ $service->drinks_name }}</td>
+                                <td>{{ $service->quantity }} pcs</td>
+                                <td>{{ $service->price }}</td>
                                 <td>
-                                    <form action="{{ route('check_out.destroy',$checkout->id) }}" method="POST">
-                                        <a class="btn btn-danger" href="{{ route('check_out.create',$checkout->id) }}">
-                                            <i class="fa-solid fa-right-from-bracket"></i>
+                                    <form action="{{ route('service_drinks.destroy',$service->id) }}" method="POST">
+                                        <a class="btn btn-primary" href="{{ route('service_drinks.edit',$service->id) }}">
+                                            <i class="fa-solid fa-pen"></i>
                                         </a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">
                                             <i class="fa-solid fa-trash-can"></i>
                                         </button>
+
                                     </form>
-                                    
                                 </td>
                             </tr>
                         @endforeach
@@ -72,10 +75,8 @@
         $('#dataTable').DataTable();
     });
 </script>
-{{-- {!! $users->links() !!} --}}
-
 @endsection
 
 @section('title')
-Check out
+Service Drinks
 @stop

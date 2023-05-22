@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Checkin;
-use Illuminate\Http\Request;
 
-class CheckinController extends Controller
+use Illuminate\Http\Request;
+use App\Models\Drinks;
+
+class ServiceDrinksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +14,10 @@ class CheckinController extends Controller
      */
     public function index()
     {
-        $checkins = Checkin::orderBy('created_at','desc')->get();
+        $services_drinks = Drinks::orderBy('created_at','desc')->get();
 
-        return view('check_in.index', compact('checkins'))
-        ->with('i', (request()->input('check_in', 1) - 1) * 5);
+        return view('service/service_drinks.index', compact('services_drinks'))
+        ->with('i', (request()->input('services_drinks', 1) - 1) * 5);
     }
 
     /**
@@ -26,7 +27,7 @@ class CheckinController extends Controller
      */
     public function create()
     {
-        return view('check_in.create');
+        return view('service/service_drinks.create');
     }
 
 
@@ -39,18 +40,16 @@ class CheckinController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'type_kamar' => 'required',
-            'nama_tamu' => 'required',
-            'jumlah_tamu' => 'required',
-            'tgl_cekin' => 'required',
-            'tgl_cekout' => 'required',
-            'payment' => 'required',
+            'drinks_name' => 'required',
+            'quantity' => 'required',
+            'price' => 'required',
         ]);
-        Checkin::create($request->all());
+        Drinks::create($request->all());
 
-        return redirect()->route('check_in.index')
+        return redirect()->route('service_drinks.index')
             ->with('success', 'Berhasil Menyimpan !');
     }
+
     /**
      * Display the specified resource.
      *
@@ -70,10 +69,9 @@ class CheckinController extends Controller
      */
     public function edit($id)
     {
-            $checkin = Checkin::find($id);
-            return view('check_in.payment',compact('checkin'));
+        $service = Drinks::find($id);
+        return view('service/service_drinks.edit',compact('service'));
     }
-    
 
     /**
      * Update the specified resource in storage.
@@ -85,40 +83,29 @@ class CheckinController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'type_kamar' => 'required',
-            'nama_tamu' => 'required',
-            'jumlah_tamu' => 'required',
-            'tgl_cekin' => 'required',
-            'tgl_cekout' => 'required',
-            'payment' => 'required',
+            'drinks_name' => 'required',
+            'quantity' => 'required',
+            'price' => 'required',
         ]);
 
         
-        Checkin::find($id)->update($request->all());
-        return redirect()->route('check_in.index')
+        Drinks::find($id)->update($request->all());
+        return redirect()->route('service_drinks.index')
             ->with('success', 'Berhasil Di Edit !');
     }
 
-
-    public function payment($id) 
-    { 
-
-    $checkin = Checkin::find($id);
-    return view('check_in.payment', compact('checkin'));
-
-    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($checkin)
+    public function destroy($service)
     {   
-        $checkinid = Checkin::find($checkin);
-        $checkinid->delete();
+        $serviceid = Drinks::find($service);
+        $serviceid->delete();
 
-        return redirect()->route('check_in.index')
+        return redirect()->route('service_drinks.index')
             ->with('success', 'Data Berhasil Hapus !');
     }
 }

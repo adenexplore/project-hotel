@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Checkin;
-use Illuminate\Http\Request;
 
-class CheckinController extends Controller
+use Illuminate\Http\Request;
+use App\Models\Seafood;
+
+class ServiceSeafoodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +14,10 @@ class CheckinController extends Controller
      */
     public function index()
     {
-        $checkins = Checkin::orderBy('created_at','desc')->get();
+        $services_seafood = Seafood::orderBy('created_at','desc')->get();
 
-        return view('check_in.index', compact('checkins'))
-        ->with('i', (request()->input('check_in', 1) - 1) * 5);
+        return view('service/service_seafood.index', compact('services_seafood'))
+        ->with('i', (request()->input('service', 1) - 1) * 5);
     }
 
     /**
@@ -26,9 +27,8 @@ class CheckinController extends Controller
      */
     public function create()
     {
-        return view('check_in.create');
+        return view('service/service_seafood.create');
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -39,16 +39,13 @@ class CheckinController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'type_kamar' => 'required',
-            'nama_tamu' => 'required',
-            'jumlah_tamu' => 'required',
-            'tgl_cekin' => 'required',
-            'tgl_cekout' => 'required',
-            'payment' => 'required',
+            'seafood_name' => 'required',
+            'quantity' => 'required',
+            'price' => 'required',
         ]);
-        Checkin::create($request->all());
+        Seafood::create($request->all());
 
-        return redirect()->route('check_in.index')
+        return redirect()->route('service_seafood.index')
             ->with('success', 'Berhasil Menyimpan !');
     }
     /**
@@ -70,11 +67,9 @@ class CheckinController extends Controller
      */
     public function edit($id)
     {
-            $checkin = Checkin::find($id);
-            return view('check_in.payment',compact('checkin'));
+        $service = Seafood::find($id);
+        return view('service/service_seafood.edit',compact('service'));
     }
-    
-
     /**
      * Update the specified resource in storage.
      *
@@ -85,40 +80,29 @@ class CheckinController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'type_kamar' => 'required',
-            'nama_tamu' => 'required',
-            'jumlah_tamu' => 'required',
-            'tgl_cekin' => 'required',
-            'tgl_cekout' => 'required',
-            'payment' => 'required',
+            'seafood_name' => 'required',
+            'quantity' => 'required',
+            'price' => 'required',
         ]);
 
         
-        Checkin::find($id)->update($request->all());
-        return redirect()->route('check_in.index')
+        Seafood::find($id)->update($request->all());
+        return redirect()->route('service_seafood.index')
             ->with('success', 'Berhasil Di Edit !');
     }
 
-
-    public function payment($id) 
-    { 
-
-    $checkin = Checkin::find($id);
-    return view('check_in.payment', compact('checkin'));
-
-    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($checkin)
+    public function destroy($service)
     {   
-        $checkinid = Checkin::find($checkin);
-        $checkinid->delete();
+        $serviceid = Seafood::find($service);
+        $serviceid->delete();
 
-        return redirect()->route('check_in.index')
+        return redirect()->route('service_seafood.index')
             ->with('success', 'Data Berhasil Hapus !');
     }
 }

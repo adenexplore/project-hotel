@@ -103,9 +103,15 @@ class CheckoutController extends Controller
             ->with('success', 'Data Berhasil Hapus !');
     }
 
-    public function payment($id)
-    {
-        $checkout = Checkin::find($id);
-        return view('check_out.hitung',compact('checkout'));
-    }
+    // public function payment($id)
+    // {
+    //     $checkout = Checkin::find($id);
+    //     return view('check_out.hitung',compact('checkout'));
+    // }
+
+    // public function  hitung($id)
+    // {
+    //    $checkout = Checkin::find($id);
+    //     return view('check_out.hitung',compact('checkout')); 
+    // }
 }
